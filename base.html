@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="dns-prefetch" href="https://cdn.craftingstore.net">
+    <link rel="icon" href="{{ store.favicon }}">
+    <title>{{ store.name }} | {{ page_name }}</title>
+    <link rel="stylesheet" href="https://cdn.craftingstore.net/assets/shops/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.craftingstore.net/assets/shops/css/themes/{{ store.theme }}.min.css">
+    <link rel="stylesheet" href="https://cdn.craftingstore.net/assets/shops/css/store.min.css">
+    <link rel="stylesheet" href="/assets/{{ store.assets_hash }}/style.css?v={{ store.updatedAt }}">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css" />
+</head>
+
+<body {% if store.background_url !=null %}style="background-image: url('{{ store.background_url }}')" {% endif %}>
+
+    <div id="loading__main">
+        <div id="obj_wrap">
+            <div class="obj"></div>
+            <div class="obj"></div>
+            <div class="obj"></div>
+            <div class="obj"></div>
+            <div class="obj"></div>
+            <div class="obj"></div>
+            <div class="obj"></div>
+            <div class="obj"></div>
+        </div>
+    </div>
+    <!-- header -->
+    {% include header %}
+
+    <!-- container -->
+    <div class="pie_container">
+
+        <div class="header">
+            <div class="buttons">
+                <div class="toolbar">
+                    <div class="custom_currency">
+                        STORE CURRENCY <span>{{ store.currency }}</span>
+                    </div>
+
+                    <div id="back_home">
+                        <a href="#">RETURN TO HOME WEBSITE</a>
+                    </div>
+                    
+                    <div class="basket">
+                        <a href="/checkout/basket">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- content -->
+        <div class="row">
+            <div class="col-lg-12 col-xs-12">
+
+                <!-- nav -->
+                {% include navbar %} {% if errors|length > 0 %}
+                <div class="alert alert-warning">
+                    <ul>
+                        {% for error in errors.all() %}
+                        <li>{{ error | raw }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %} {% block page %} {% endblock %}
+
+            </div>
+        </div>
+
+		<script src="https://cdn.craftingstore.net/assets/shops/js/jquery.min.js" data-no-instant></script>
+		<script src="https://cdn.craftingstore.net/assets/shops/js/bootstrap.min.js" data-no-instant></script>
+		<script src="https://cdn.craftingstore.net/assets/shops/js/store.js" data-no-instant></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
+        <!-- 135291 -->
+        <!-- 13bf4b160d5f45ffbe1ee0ae0388ddc8 -->
+        <!-- b30c22f051eb49dea44f7ed64028e6c0 -->
+    </div>
+    <!-- footer -->
+    {% include footer %}
+    <script>
+        // HTML MODIFIERS (SETTINGS)
+        var serverIP = 'play.serverip.com'; // Change to your server IP (Displayed under navigation bar) (footer.html to edit footer)
+
+        var serverLogo = 'YOUR_SERVER_LOGO_URL_GOES_HERE' // This will only replace header and footer logos.
+
+        var headerBackground = 'https://i.imgur.com/G0eRXzK.jpg'; // Replaces background of the header
+
+        var mainWebsite = true; // Hides main (top) navigation bar and "Back to Home Website" Button if set to "false"
+
+        var serverIpAddress = 'mc.hypixel.net'; // Used for player count, the one at the top is for display purposes.
+
+        var discordModule = true; // Hides discord module on the left if set to "false"
+
+        var discordGuild = 'YOUR_DISCORD_GUILD_ID'; //You need to have Server Widget Enabled
+
+        var discordInviteLink = 'YOUR_DISCORD_INVITATION_LINK';
+
+        var lightModeSwitch = true; // Set to false to hide light / dark mode switcher (Hide in the Style Editor) (NOT DONE)
+
+        var styleEditor = true; // Set to false to hide Style Editor (footer)
+
+        var defaultColor = 'orange'; // All options: 'orange', 'purple', 'green', 'lblue', 'red', 'pink'
+
+        var defaultThemeColor = 'rhino'; // All options: 'rhino', 'asphalt', 'dslate', 'darkness', 'dgray', 'valhalla'
+
+        var particlesColor = '#e22d2d' // Change hex code to change particles color on header
+
+        var indexDonGoal = true; // Set to false to hide "Donation goal" on the main page container and display it as module.
+        
+        var pieIntroDisplay = true; // Set to false to hide "Intro bar" on the main page container
+
+        var pieFaqDisplay = true; // Set to false to hide "FAQ" tab on the main page container.
+
+        var pieInfoButtonsDisplay = true; // Set to false to hide "Info buttons" on the main page container ("Privacy Policy", "TOS", "Discord", "Rank Table")
+
+        var enableTable = true; // Set to false to hide "Rank Table" button on the main page container.
+
+        // Don't edit if you don't know what you are doing.
+        var $body = $("body");
+        $(window).load(function() {
+            $('#loading__main').hide();
+            $body.css("overflow-y", "visible");
+        });
+        if ($(window).width() < 767) {   
+            $('.pie_widgets').appendTo('.pie_container');
+        }
+
+        $(function() {
+            $body.css("overflow-y", "hidden");
+            $('#loading__main').prependTo('body');
+            getOnlinePlayers();
+            getDiscordUsers();
+            $('#ip,#ft_ip').css('cursor', 'pointer');
+            $('.navigation__bar .dropdown').click(function() {
+                if ($(this).find('ul li').css("display") == "none") {
+                    $(this).find('ul li').css("display", "block");
+                    $(this).addClass("lihovered");
+                    $(this).find('a').addClass("ahovered");
+                } else {
+                    $(this).find('ul li').css("display", "none");
+                    $(this).removeClass("lihovered");
+                    $(this).find('a').removeClass("ahovered");
+                }
+
+            });
+
+        });
+        $('.faq_box').hide();
+        $('.faq_heading').click(function() {
+            $(this).next('.faq_box').fadeToggle('slow');
+            $(this).find('a').toggleClass('active');
+            $(this).toggleClass('change');
+        });
+        if (!mainWebsite) {
+            $('.navigation__bar, #back_home').hide();
+            $('#main,.header_wrap').css("height", "400px");
+        }
+        if (!discordModule) {
+            $('.discord_box').hide();
+        }
+        if (!lightModeSwitch) {
+            $('.lmodeswitch').hide();
+        }
+        if (!styleEditor) {
+            $('.pie_style_changer').hide();
+        }
+        if ($(".pie_donation").length > 0 && indexDonGoal) {
+            $(".panel.panel-default.pie_donation_mod").hide();
+            $(".pie_donation").appendTo(".pie_goal");
+            $(".pie_server_welcome").css({"float": "left", "width": "60%"});
+        } else {
+            $('.pie_goal').remove();
+        }
+        if (!pieIntroDisplay) {
+            $('.pie_intro_wrapper').hide();
+        }
+        if (!pieFaqDisplay) {
+            $('.pie_faq').hide();
+        }
+        if (!pieInfoButtonsDisplay) {
+            $('.pie_info').hide();
+        }
+        $('#main').css("background", "url(" + headerBackground + ")");
+        $('.discord_box .pie_box_text a, .discord_info_btn a').attr('href', discordInviteLink);
+        $('#ip span, #ft_ip').text(serverIP);
+        $('#ip, #ft_ip').attr('data-clipboard-text', serverIP);
+        $(".pie_box.logo_box img, footer .ft__row.logorow .row__inner img").attr("src", serverLogo);
+
+        function getOnlinePlayers() {
+            $.getJSON(`https://mcapi.us/server/status?ip=${serverIpAddress}`, function(json) {
+                if (json.status !== "error") {
+                    $("#online, #ft_online").html('<i class="fas fa-users"></i> ' + json.players.now);
+                } else {
+                    $("#online, #ft_online").html('<i class="fas fa-spinner fa-spin"></i>');
+                }
+
+                setTimeout(getOnlinePlayers, 5000);
+            });
+        }
+        var discord_status = false;
+
+        function getDiscordUsers() {
+            $.getJSON(`https://discordapp.com/api/guilds/${discordGuild}/embed.json`, function(json) { //Need server widget enabled
+                discord_status = true;
+                $('#disc_members').html(json['members'].length)
+            });
+        }
+
+        setTimeout(function() {
+            if (!discord_status) {
+                $('#disc_members').html('<i class="fas fa-spinner fa-spin"></i>');
+            }
+        }, 5000);
+        $(function() {
+            var ip = new Clipboard('#ip');
+
+            ip.on("success", function() {
+                $('#ip p').html("IP has been successfully copied!");
+                event.preventDefault();
+                $('#modal-alert').iziModal('open');
+
+                setTimeout(function() {
+                    $('#ip p').html("Click to copy IP address!");
+                }, 3000);
+
+            });
+        });
+        $(function() {
+            var ft_ip = new Clipboard('#ft_ip');
+
+            ft_ip.on("success", function() {
+                event.preventDefault();
+                $('#modal-alert').iziModal('open');
+            });
+        });
+        $('#modal-alert').iziModal({
+            headerColor: 'var(--theme-main-color-dark)',
+            width: 400,
+            timeout: 3000,
+            pauseOnHover: false,
+            timeoutProgressbar: true,
+            attached: 'bottom'
+        });
+        $(function() {
+            var cookieColor = $.cookie("selected_class");
+            var themeColor = $.cookie("theme_selected_class");
+            if (cookieColor) {
+                $body.addClass(cookieColor);
+            } else {
+                $body.addClass(defaultColor);
+            }
+            if (themeColor) {
+                $body.addClass(themeColor);
+            } else {
+                $body.addClass(defaultThemeColor);
+            }
+            // iziModal default
+            $("#modal-default").iziModal({
+                overlayClose: false,
+                overlayColor: 'rgba(0, 0, 0, 0.6)',
+                width: 1000,
+                padding: 20
+            });
+            $("#modal-rtable").iziModal({
+                overlayClose: false,
+                overlayColor: 'rgba(0, 0, 0, 0.6)',
+                width: 1000,
+                padding: 20
+            });
+            $('.scroll__top').click(function() {
+                var body = $("html, body");
+                body.animate({scrollTop:0}, 300, 'swing');
+            });
+            // Rank table (iziModal)
+            $('.pie_rtable').click(function() {
+                event.preventDefault();
+                $('#modal-rtable').iziModal('open');
+            });
+            // Style Change Panel (iziModal)
+            $('.pie_style_changer').click(function() {
+                event.preventDefault();
+                $('#modal-default').iziModal('open');
+            });
+            var classColor;
+            var textColors = ["orange", "purple", "green", "lblue", "red", "pink"];
+            $('.colors_each').click(function() {
+                classColor = $(this).attr('class').split(' ')[1];
+                textColors.forEach(function(color) {
+                    if ($body.hasClass(color)) {
+                        $body.removeClass(color);
+                    }
+                });
+                $body.addClass(classColor);
+                $.cookie("selected_class", classColor, { path: '/' });
+            });
+            var themeClassColor;
+            var themeColors = ["rhino", "asphalt", "dslate", "darkness", "dgray", "valhalla"];
+            $('.colors_theme_each').click(function() {
+                themeClassColor = $(this).attr('class').split(' ')[1];
+                themeColors.forEach(function(themeColor) {
+                    if ($body.hasClass(themeColor)) {
+                        $body.removeClass(themeColor);
+                    }
+                });
+                $body.addClass(themeClassColor);
+                $.cookie("theme_selected_class", themeClassColor, { path: '/' });
+            });
+            var themeColor = $.cookie("theme_color");
+            var themeWidth = $.cookie("theme_fluid");
+            var sidenavPos = $.cookie("sidenav_position");
+            if (themeColor == 'lightmode') {
+                $body.addClass(themeColor);
+                $('.slider.dark_sl').addClass('clicked');
+            }
+            if (themeWidth == 'fluid_width') {
+                $body.addClass(themeWidth);
+                $('.slider.fluid_sl').addClass('clicked');
+            }
+            if (sidenavPos == 'right_side') {
+                $('.sidenav').insertAfter('.pie_content');
+                $('.sidenav').addClass('right_side');
+                $('.slider.sidenav_sl').addClass('clicked');
+            }
+            $('.slider').on('click', function() {
+                $(this).toggleClass('clicked');
+                if ($(this).hasClass("dark_sl")) {
+                    $body.toggleClass('lightmode');
+                    if ($body.hasClass('lightmode')) {
+                        $.cookie("theme_color", "lightmode", { path: '/' });
+                    } else {
+                        $.cookie("theme_color", null, { path: '/' });
+                    }
+                } else if ($(this).hasClass("fluid_sl")) {
+                    $body.toggleClass('fluid_width');
+                    if ($body.hasClass('fluid_width')) {
+                        $.cookie("theme_fluid", "fluid_width", { path: '/' });
+                    } else {
+                        $.cookie("theme_fluid", null, { path: '/' });
+                    }
+                } else if ($(this).hasClass("sidenav_sl")) {
+                    if ($('.sidenav').hasClass('right_side')) {
+                        $('.sidenav').insertBefore('.pie_content');
+                        $('.sidenav').removeClass('right_side');
+                    } else {
+                        $('.sidenav').insertAfter('.pie_content');
+                        $('.sidenav').addClass('right_side');
+                        console.log("else activated")
+                    }
+                    if ($('.sidenav').hasClass('right_side')) {
+                        $.cookie("sidenav_position", "right_side", { path: '/' });
+                    } else {
+                        $.cookie("sidenav_position", null, { path: '/' });
+                    }
+                }
+            });
+        });
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 1000,
+                    "density": {
+                        "enable": true,
+                        "value_area": 3000
+                    }
+                },
+                "color": {
+                    "value": particlesColor
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 3
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 2,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 5,
+                        "size_min": 0,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": false,
+                    "distance": 500,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 2
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 7.8914764163227265,
+                    "direction": "top",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": false,
+                        "mode": "bubble"
+                    },
+                    "onclick": {
+                        "enable": false,
+                        "mode": "repulse"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 0.5
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 4,
+                        "duration": 0.3,
+                        "opacity": 1,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+        var count_particles, stats, update;
+    </script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="dns-prefetch" href="https://cdn.craftingstore.net">
+    <link rel="icon" href="{{ store.favicon }}">
+    <title>{{ store.name }} | {{ page_name }}</title>
+    <link rel="stylesheet" href="https://cdn.craftingstore.net/assets/shops/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.craftingstore.net/assets/shops/css/themes/{{ store.theme }}.min.css">
+    <link rel="stylesheet" href="https://cdn.craftingstore.net/assets/shops/css/store.min.css">
+    <link rel="stylesheet" href="/assets/{{ store.assets_hash }}/style.css?v={{ store.updatedAt }}">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/css/iziModal.min.css" />
+</head>
+
+<body {% if store.background_url !=null %}style="background-image: url('{{ store.background_url }}')" {% endif %}>
+
+    <div id="loading__main">
+        <div id="obj_wrap">
+            <div class="obj"></div>
+            <div class="obj"></div>
+            <div class="obj"></div>
+            <div class="obj"></div>
+            <div class="obj"></div>
+            <div class="obj"></div>
+            <div class="obj"></div>
+            <div class="obj"></div>
+        </div>
+    </div>
+    <!-- header -->
+    {% include header %}
+
+    <!-- container -->
+    <div class="pie_container">
+
+        <div class="header">
+            <div class="buttons">
+                <div class="toolbar">
+                    <div class="custom_currency">
+                        STORE CURRENCY <span>{{ store.currency }}</span>
+                    </div>
+
+                    <div id="back_home">
+                        <a href="#">RETURN TO HOME WEBSITE</a>
+                    </div>
+                    
+                    <div class="basket">
+                        <a href="/checkout/basket">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- content -->
+        <div class="row">
+            <div class="col-lg-12 col-xs-12">
+
+                <!-- nav -->
+                {% include navbar %} {% if errors|length > 0 %}
+                <div class="alert alert-warning">
+                    <ul>
+                        {% for error in errors.all() %}
+                        <li>{{ error | raw }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %} {% block page %} {% endblock %}
+
+            </div>
+        </div>
+
+		<script src="https://cdn.craftingstore.net/assets/shops/js/jquery.min.js" data-no-instant></script>
+		<script src="https://cdn.craftingstore.net/assets/shops/js/bootstrap.min.js" data-no-instant></script>
+		<script src="https://cdn.craftingstore.net/assets/shops/js/store.js" data-no-instant></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.12/clipboard.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
+        <!-- 135291 -->
+        <!-- 13bf4b160d5f45ffbe1ee0ae0388ddc8 -->
+        <!-- b30c22f051eb49dea44f7ed64028e6c0 -->
+    </div>
+    <!-- footer -->
+    {% include footer %}
+    <script>
+        // HTML MODIFIERS (SETTINGS)
+        var serverIP = 'play.serverip.com'; // Change to your server IP (Displayed under navigation bar) (footer.html to edit footer)
+
+        var serverLogo = 'YOUR_SERVER_LOGO_URL_GOES_HERE' // This will only replace header and footer logos.
+
+        var headerBackground = 'https://i.imgur.com/G0eRXzK.jpg'; // Replaces background of the header
+
+        var mainWebsite = true; // Hides main (top) navigation bar and "Back to Home Website" Button if set to "false"
+
+        var serverIpAddress = 'mc.hypixel.net'; // Used for player count, the one at the top is for display purposes.
+
+        var discordModule = true; // Hides discord module on the left if set to "false"
+
+        var discordGuild = 'YOUR_DISCORD_GUILD_ID'; //You need to have Server Widget Enabled
+
+        var discordInviteLink = 'YOUR_DISCORD_INVITATION_LINK';
+
+        var lightModeSwitch = true; // Set to false to hide light / dark mode switcher (Hide in the Style Editor) (NOT DONE)
+
+        var styleEditor = true; // Set to false to hide Style Editor (footer)
+
+        var defaultColor = 'orange'; // All options: 'orange', 'purple', 'green', 'lblue', 'red', 'pink'
+
+        var defaultThemeColor = 'rhino'; // All options: 'rhino', 'asphalt', 'dslate', 'darkness', 'dgray', 'valhalla'
+
+        var particlesColor = '#e22d2d' // Change hex code to change particles color on header
+
+        var indexDonGoal = true; // Set to false to hide "Donation goal" on the main page container and display it as module.
+        
+        var pieIntroDisplay = true; // Set to false to hide "Intro bar" on the main page container
+
+        var pieFaqDisplay = true; // Set to false to hide "FAQ" tab on the main page container.
+
+        var pieInfoButtonsDisplay = true; // Set to false to hide "Info buttons" on the main page container ("Privacy Policy", "TOS", "Discord", "Rank Table")
+
+        var enableTable = true; // Set to false to hide "Rank Table" button on the main page container.
+
+        // Don't edit if you don't know what you are doing.
+        var $body = $("body");
+        $(window).load(function() {
+            $('#loading__main').hide();
+            $body.css("overflow-y", "visible");
+        });
+        if ($(window).width() < 767) {   
+            $('.pie_widgets').appendTo('.pie_container');
+        }
+
+        $(function() {
+            $body.css("overflow-y", "hidden");
+            $('#loading__main').prependTo('body');
+            getOnlinePlayers();
+            getDiscordUsers();
+            $('#ip,#ft_ip').css('cursor', 'pointer');
+            $('.navigation__bar .dropdown').click(function() {
+                if ($(this).find('ul li').css("display") == "none") {
+                    $(this).find('ul li').css("display", "block");
+                    $(this).addClass("lihovered");
+                    $(this).find('a').addClass("ahovered");
+                } else {
+                    $(this).find('ul li').css("display", "none");
+                    $(this).removeClass("lihovered");
+                    $(this).find('a').removeClass("ahovered");
+                }
+
+            });
+
+        });
+        $('.faq_box').hide();
+        $('.faq_heading').click(function() {
+            $(this).next('.faq_box').fadeToggle('slow');
+            $(this).find('a').toggleClass('active');
+            $(this).toggleClass('change');
+        });
+        if (!mainWebsite) {
+            $('.navigation__bar, #back_home').hide();
+            $('#main,.header_wrap').css("height", "400px");
+        }
+        if (!discordModule) {
+            $('.discord_box').hide();
+        }
+        if (!lightModeSwitch) {
+            $('.lmodeswitch').hide();
+        }
+        if (!styleEditor) {
+            $('.pie_style_changer').hide();
+        }
+        if ($(".pie_donation").length > 0 && indexDonGoal) {
+            $(".panel.panel-default.pie_donation_mod").hide();
+            $(".pie_donation").appendTo(".pie_goal");
+            $(".pie_server_welcome").css({"float": "left", "width": "60%"});
+        } else {
+            $('.pie_goal').remove();
+        }
+        if (!pieIntroDisplay) {
+            $('.pie_intro_wrapper').hide();
+        }
+        if (!pieFaqDisplay) {
+            $('.pie_faq').hide();
+        }
+        if (!pieInfoButtonsDisplay) {
+            $('.pie_info').hide();
+        }
+        $('#main').css("background", "url(" + headerBackground + ")");
+        $('.discord_box .pie_box_text a, .discord_info_btn a').attr('href', discordInviteLink);
+        $('#ip span, #ft_ip').text(serverIP);
+        $('#ip, #ft_ip').attr('data-clipboard-text', serverIP);
+        $(".pie_box.logo_box img, footer .ft__row.logorow .row__inner img").attr("src", serverLogo);
+
+        function getOnlinePlayers() {
+            $.getJSON(`https://mcapi.us/server/status?ip=${serverIpAddress}`, function(json) {
+                if (json.status !== "error") {
+                    $("#online, #ft_online").html('<i class="fas fa-users"></i> ' + json.players.now);
+                } else {
+                    $("#online, #ft_online").html('<i class="fas fa-spinner fa-spin"></i>');
+                }
+
+                setTimeout(getOnlinePlayers, 5000);
+            });
+        }
+        var discord_status = false;
+
+        function getDiscordUsers() {
+            $.getJSON(`https://discordapp.com/api/guilds/${discordGuild}/embed.json`, function(json) { //Need server widget enabled
+                discord_status = true;
+                $('#disc_members').html(json['members'].length)
+            });
+        }
+
+        setTimeout(function() {
+            if (!discord_status) {
+                $('#disc_members').html('<i class="fas fa-spinner fa-spin"></i>');
+            }
+        }, 5000);
+        $(function() {
+            var ip = new Clipboard('#ip');
+
+            ip.on("success", function() {
+                $('#ip p').html("IP has been successfully copied!");
+                event.preventDefault();
+                $('#modal-alert').iziModal('open');
+
+                setTimeout(function() {
+                    $('#ip p').html("Click to copy IP address!");
+                }, 3000);
+
+            });
+        });
+        $(function() {
+            var ft_ip = new Clipboard('#ft_ip');
+
+            ft_ip.on("success", function() {
+                event.preventDefault();
+                $('#modal-alert').iziModal('open');
+            });
+        });
+        $('#modal-alert').iziModal({
+            headerColor: 'var(--theme-main-color-dark)',
+            width: 400,
+            timeout: 3000,
+            pauseOnHover: false,
+            timeoutProgressbar: true,
+            attached: 'bottom'
+        });
+        $(function() {
+            var cookieColor = $.cookie("selected_class");
+            var themeColor = $.cookie("theme_selected_class");
+            if (cookieColor) {
+                $body.addClass(cookieColor);
+            } else {
+                $body.addClass(defaultColor);
+            }
+            if (themeColor) {
+                $body.addClass(themeColor);
+            } else {
+                $body.addClass(defaultThemeColor);
+            }
+            // iziModal default
+            $("#modal-default").iziModal({
+                overlayClose: false,
+                overlayColor: 'rgba(0, 0, 0, 0.6)',
+                width: 1000,
+                padding: 20
+            });
+            $("#modal-rtable").iziModal({
+                overlayClose: false,
+                overlayColor: 'rgba(0, 0, 0, 0.6)',
+                width: 1000,
+                padding: 20
+            });
+            $('.scroll__top').click(function() {
+                var body = $("html, body");
+                body.animate({scrollTop:0}, 300, 'swing');
+            });
+            // Rank table (iziModal)
+            $('.pie_rtable').click(function() {
+                event.preventDefault();
+                $('#modal-rtable').iziModal('open');
+            });
+            // Style Change Panel (iziModal)
+            $('.pie_style_changer').click(function() {
+                event.preventDefault();
+                $('#modal-default').iziModal('open');
+            });
+            var classColor;
+            var textColors = ["orange", "purple", "green", "lblue", "red", "pink"];
+            $('.colors_each').click(function() {
+                classColor = $(this).attr('class').split(' ')[1];
+                textColors.forEach(function(color) {
+                    if ($body.hasClass(color)) {
+                        $body.removeClass(color);
+                    }
+                });
+                $body.addClass(classColor);
+                $.cookie("selected_class", classColor, { path: '/' });
+            });
+            var themeClassColor;
+            var themeColors = ["rhino", "asphalt", "dslate", "darkness", "dgray", "valhalla"];
+            $('.colors_theme_each').click(function() {
+                themeClassColor = $(this).attr('class').split(' ')[1];
+                themeColors.forEach(function(themeColor) {
+                    if ($body.hasClass(themeColor)) {
+                        $body.removeClass(themeColor);
+                    }
+                });
+                $body.addClass(themeClassColor);
+                $.cookie("theme_selected_class", themeClassColor, { path: '/' });
+            });
+            var themeColor = $.cookie("theme_color");
+            var themeWidth = $.cookie("theme_fluid");
+            var sidenavPos = $.cookie("sidenav_position");
+            if (themeColor == 'lightmode') {
+                $body.addClass(themeColor);
+                $('.slider.dark_sl').addClass('clicked');
+            }
+            if (themeWidth == 'fluid_width') {
+                $body.addClass(themeWidth);
+                $('.slider.fluid_sl').addClass('clicked');
+            }
+            if (sidenavPos == 'right_side') {
+                $('.sidenav').insertAfter('.pie_content');
+                $('.sidenav').addClass('right_side');
+                $('.slider.sidenav_sl').addClass('clicked');
+            }
+            $('.slider').on('click', function() {
+                $(this).toggleClass('clicked');
+                if ($(this).hasClass("dark_sl")) {
+                    $body.toggleClass('lightmode');
+                    if ($body.hasClass('lightmode')) {
+                        $.cookie("theme_color", "lightmode", { path: '/' });
+                    } else {
+                        $.cookie("theme_color", null, { path: '/' });
+                    }
+                } else if ($(this).hasClass("fluid_sl")) {
+                    $body.toggleClass('fluid_width');
+                    if ($body.hasClass('fluid_width')) {
+                        $.cookie("theme_fluid", "fluid_width", { path: '/' });
+                    } else {
+                        $.cookie("theme_fluid", null, { path: '/' });
+                    }
+                } else if ($(this).hasClass("sidenav_sl")) {
+                    if ($('.sidenav').hasClass('right_side')) {
+                        $('.sidenav').insertBefore('.pie_content');
+                        $('.sidenav').removeClass('right_side');
+                    } else {
+                        $('.sidenav').insertAfter('.pie_content');
+                        $('.sidenav').addClass('right_side');
+                        console.log("else activated")
+                    }
+                    if ($('.sidenav').hasClass('right_side')) {
+                        $.cookie("sidenav_position", "right_side", { path: '/' });
+                    } else {
+                        $.cookie("sidenav_position", null, { path: '/' });
+                    }
+                }
+            });
+        });
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 1000,
+                    "density": {
+                        "enable": true,
+                        "value_area": 3000
+                    }
+                },
+                "color": {
+                    "value": particlesColor
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 3
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 2,
+                    "random": true,
+                    "anim": {
+                        "enable": true,
+                        "speed": 5,
+                        "size_min": 0,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": false,
+                    "distance": 500,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 2
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 7.8914764163227265,
+                    "direction": "top",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": false,
+                        "mode": "bubble"
+                    },
+                    "onclick": {
+                        "enable": false,
+                        "mode": "repulse"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 0.5
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 4,
+                        "duration": 0.3,
+                        "opacity": 1,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+        var count_particles, stats, update;
+    </script>
+
+</body>
+
+</html>
+
+</body>
+
+</html>

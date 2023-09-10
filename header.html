@@ -1,0 +1,109 @@
+<section id="main">
+  <div class="header_wrap">
+    <div id="particles-js"></div>
+    <div class="navigation__bar">
+      <div id="pie_tebex_bar">
+        <div class="tbar_icon">
+          <span class="bars-first"></span>
+          <span class="bars-second"></span>
+          <span class="bars-third"></span>
+        </div>
+      </div>
+      <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/forum">Forums</a></li>
+        <li><a href="/store">Store</a></li>
+        <li><a href="/staff">Staff</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0);">
+            Support <i class="fas fa-caret-down"></i>
+          </a>
+          <ul>
+            <li><a href="/support">Support Center</a></li>
+            <li><a href="/faq">Questions</a></li>
+            <li><a href="/rules">Rules</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div id="server_bar">
+      <div class="inner_fx">
+        <div class="serverbox pid">
+          <div class="on_players">
+            <span id="online"><i class="fas fa-spinner fa-spin"></i></span>
+            Currently playing
+            <p>What are you waiting for?</p>
+          </div>
+        </div>
+        <div class="serverbox ipid">
+          <div id="ip" data-clipboard-text="">
+            <span></span> <i class="fas fa-copy"></i>
+            <p>Click to copy IP address!</p>
+            <div
+              id="modal-alert"
+              data-izimodal-title="IP Has been successfully copied!"
+              data-izimodal-subtitle="Hoping to see you soon!"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="inf__bar__wrapper">
+      <div class="pie_box login_box">
+        <div class="pie_box_text">
+          {% if player.name != null %}
+          <h2 id="h_username">Welcome, {{ player.name }}</h2>
+          <div id="userhub">
+            <div id="boot_username">
+              <div class="bottom__btns">
+                <div class="logged__in">
+                  <a href="/checkout/basket/forget" class="lin__button">Logout</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% else %}
+          <h2 id="h_username">Welcome, Guest</h2>
+          <div id="userhub">
+            <div id="boot_username">
+              <div class="logged__out">
+                <p class="small_text">You are not logged in.</p>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        <div class="pie_box_icon">
+          {% if player.name != null %}
+          <img src="https://minotar.net/avatar/{{ player.name }}" /> {% else %}
+          <i class="fas fa-user"></i> {% endif %}
+        </div>
+      </div>
+
+      <div class="pie_box logo_box">
+        <a href="/">
+          <img src="" />
+        </a>
+        <!-- EDIT THROUGH THE JAVASCRIPT EDITOR -->
+      </div>
+
+      <div class="pie_box discord_box">
+        <div class="pie_box_icon">
+          <i class="fab fa-discord"></i>
+        </div>
+        <div class="pie_box_text discord">
+          <a href="">
+            <h2>
+              <span id="disc_members"
+                ><i class="fas fa-spinner fa-spin"></i
+              ></span>
+              Members online on discord
+            </h2>
+            <p class="small_text">Become one of us today, click to join!</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

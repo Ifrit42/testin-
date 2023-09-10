@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+  <div class="panel-heading">{{ module.header }}</div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="buyers_pie_avatar">
+          {% if module.data.avatarUrl is defined %}
+            <img src="{{ module.data.avatarUrl }}" class="img-circle" />
+          {% else %}
+            <img
+              src="https://cravatar.eu/helmavatar/{{ module.data.uuid }}/100.png"
+              class="img-circle"
+            />
+          {% endif %}
+        </div>
+        <div class="buyers_pie_info">
+          <div class="buyers_name"><b>{{ module.data.mc_name }}</b></div>
+          <div class="buyers_package">
+            {% if module.data.show_amount_spend == 1 %} 
+              {{ module.data.total|number_format(2, '.', ',') }} {{ store.currency }}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

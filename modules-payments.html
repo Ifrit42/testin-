@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+  <div class="panel-heading">{{ module.header }}</div>
+  <div class="panel-body">
+    <div class="row">
+      {% for payment in module.data %}
+        <div class="col-md-12 buyers_wrapper">
+          <div class="buyers_pie_avatar">
+            {% if payment.avatarUrl is defined %}
+              <img src="{{ payment.avatarUrl }}" class="img-circle" />
+            {% else %}
+              <img
+                src="https://crafatar.com/avatars/{{ payment.uuid }}/?size=100&overlay=true"
+                class="img-circle"
+              />
+            {% endif %}
+          </div>
+          <div class="buyers_pie_info">
+            <div class="buyers_name"><b>{{ payment.mc_name }}</b></div>
+            <div class="buyers_package">{{ payment.package_name }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

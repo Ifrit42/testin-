@@ -1,0 +1,147 @@
+{% extends base %} 
+
+{% block page %}
+  <div class="pie_content">
+    <div class="panel panel-default">
+      <div class="panel-heading">{{ category.name | raw }}</div>
+      <div class="row">
+        {% if category.description is defined %}
+          <div class="row">
+            <div class="col-md-12 pie_category_desc">
+              {{ category.description | raw }}
+            </div>
+          </div>
+        {% endif %} 
+
+        {% if category.viewMode is defined and category.viewMode == 1 %}
+          <table class="table table-hover table-striped">
+            <tbody>
+              {% for package in packages %}
+                <tr>
+                  <td class="name">{{ package.name }}</td>
+                  <td class="price">
+                    {% if package.priceCalculatedOriginal == package.priceCalculatedDiscounted %} 
+                      {{ package.priceCalculatedOriginal|number_format(2, '.', ',') }} 
+                    {% else %}
+                      <del>{{ package.priceCalculatedOriginal|number_format(2, '.', ',') }}</del>
+                      {{ package.priceCalculatedDiscounted|number_format(2, '.', ',') }}
+                    {% endif %}
+                    <small>{{ store.currency }}</small>
+                  </td>
+                  <td class="pull-right">
+                    <button
+                      type="button"
+                      class="btn btn-primary btn-xs"
+                      data-toggle="modal"
+                      data-target="#package{{ package.id }}"
+                    >
+                      {{ language.more_info }}
+                    </button>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %} 
+          {% for row in packages|batch(3) %}
+            <div class="row">
+              {% for package in row %}
+                <div class="pie_package">
+                  <div class="item-wrapper">
+                    <div
+                      class="pie_package_image"
+                      data-toggle="modal"
+                      data-target="#package{{ package.id }}"
+                    >
+                      {% if package.picture != null %}
+                        <img class="img-responsive" src="{{ package.picture }}" />
+                      {% endif %}
+                    </div>
+                    <div class="pie_package_info">
+                      <div class="pie_name">{{ package.name }}</div>
+
+                      <a
+                        href="javascript::void(0);"
+                        data-toggle="modal"
+                        data-target="#package{{ package.id }}"
+                        class="pie_pricing"
+                      >
+                        {% if package.priceCalculatedOriginal == package.priceCalculatedDiscounted %} 
+                          BUY - {{ package.priceCalculatedOriginal|number_format(2, '.', ',') }} 
+                        {% else %}
+                          <del>{{ package.priceCalculatedOriginal|number_format(2, '.', ',') }}</del>
+                          BUY - {{ package.priceCalculatedDiscounted|number_format(2, '.', ',') }} 
+                        {% endif %} 
+                        {{ store.currency }}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {% for package in packages %}
+    <div
+      class="modal fade"
+      id="package{{ package.id }}"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+            <h4 class="modal-title">{{ package.name }}</h4>
+          </div>
+          <div class="modal-body">
+            <p>{{ package.description | raw }}</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              {{ language.close }}
+            </button>
+            {% if category.cumulativeCategory %} 
+              {% if package.price - cumulativeDiscount > 0 %}
+                <a href="/package/{{ package.id }}">
+                  <button type="button" class="btn btn-primary">
+                    {{ language.buy_now }}
+                  </button>
+                </a>
+              {% endif %} 
+            {% else %}
+              <a href="/package/{{ package.id }}">
+                <button type="button" class="btn btn-primary">
+                  {{ language.buy_now }}
+                </button>
+              </a>
+              {% if package.subscriptionEnabled %}
+                <a href="/package/{{ package.id }}?subscription">
+                  <button type="button" class="btn btn-primary">
+                    {{ language.subscribe }}
+                  </button>
+                </a>
+              {% endif %}
+            {% endif %}
+            <!-- 135291 -->
+            <!-- 13bf4b160d5f45ffbe1ee0ae0388ddc8 -->
+            <!-- b30c22f051eb49dea44f7ed64028e6c0 -->
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %} 
+
+{% endblock %}
