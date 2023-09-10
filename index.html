@@ -6,359 +6,179 @@
     <title>Craftnesia</title>
 </head>
 <body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
+    <style>
+      .card-container {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: space-evenly; /* Space items evenly along the horizontal axis */
+    gap: 20px; /* Add some spacing between the cards */
+}
 
-<style> 
-  
-  body {
-    background-image: url(https://cdn.discordapp.com/attachments/1140646948706193409/1145422163919261827/29509703-D7CF-41D7-94F0-A2BC34386BE4.jpg);
-    background-size: cover;
-  }
-</style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width={% extends base %}
+.card {
+    /* Your card styles */
+    .card {
+    width: 300px; /* Set the width of each card */
+    background-color: #fff; /* Card background color */
+    border: 1px solid #ccc; /* Card border */
+    border-radius: 8px; /* Rounded corners for the card */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Card shadow */
+    padding: 20px; /* Padding inside the card */
+    text-align: center; /* Center card content */
+}
+} 
+.card-container2 {
+    display: flex; /* Use flexbox for horizontal layout */
+    justify-content: space-evenly; /* Space items evenly along the horizontal axis */
+    gap: 20px; /* Add some spacing between the cards */
+}
 
-    {% block page %}
-    
-    <div class="gusan1">
-      <div class="craftnesia-reborn"
-      <div class="CN-reborn-img"></div>
-        <center><img src="https://cdn.discordapp.com/attachments/1140646948706193409/1140673881632411819/craftnesia-simple.png" sizes="450" width="400" class="animation-up-down"></center>
+.card {
+    /* Your card styles */
+    .card {
+    width: 300px; /* Set the width of each card */
+    background-color: #fff; /* Card background color */
+    border: 1px solid #ccc; /* Card border */
+    border-radius: 8px; /* Rounded corners for the card */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Card shadow */
+    padding: 20px; /* Padding inside the card */
+    text-align: center; /* Center card content */
+}
+}
+.animation-floating-logo {
+  animation: alternate-reverse;
+  position:relative;
+}
+    </style>
+
+    <!--HEADER-->
+    <header>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.3/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<div class="navbar bg-base-100">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <label tabindex="0" class="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+        </label>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a target="_blank" href="https://web.craftnesia.my.id/forum">Forum</a></li>
+          <li>
+            <a>Vote</a>
+            <ul class="p-2">
+              <li><a target ="_blank" href="https://minecraftservers.org/vote/651468">Vote 1</a></li>
+              <li><a target ="_blank" href="https://minecraft-mp.com/server/319833/vote/">Vote 2</a></li>
+            </ul>
+          </li>
+          <li><a a target="_blank" href="https://sociabuzz.com/craftnesia/shop">Store</a></li>
+        </ul>
       </div>
+      <div class="lg:tooltip" data-tip="Click To Copy">
+      <a class="btn btn-ghost normal-case text-xl" onclick="copyText()">play.craftnesia.my.id</a>
+      </div>
+      <script>
+        function copyText() {
+      
+            /* Copy text into clipboard */
+            navigator.clipboard.writeText
+                ("play.craftnesia.my.id");
+        }
+            /* IP Copied */
+            function writeText() {
+              navigator.writeText
+                ("IP Copied");
+        }
+    </script>
     </div>
-    <div class="pie_content">
-      <div class="panel panel-body">
-        <div class="pie_intro_wrapper">
-          <div class="pie_server_welcome">
-            <div class="sv_heading" style="color: white;"> </div>
-            <!-- Change 'Pie Theme' to your server name -->
-            <div class="sv_untitle" style="color: white;"> </div>
-          </div>
-          <div class="pie_goal"></div>
-        </div>
-        <p style="color: white;"> </p>
-    
-        <div class="pie_faq">
-          <h2 style="color: white;"> </h2>
-          <div id="faq">
-            <div class="faq_box_tab">
-              <div class="faq_box_main">
-                <div class="faq_heading">
-                  <i class="fas fa-question-circle"></i><a> </a>
-                  <!-- FAQ HEADING 1 -->
-                  <div class="faq_icon">
-                    <div class="faq_bar f"></div>
-                    <div class="faq_bar s"></div>
-                  </div>
-                </div>
-                <div class="faq_box">
-                  <!-- FAQ ANSWER 1 -->
-                  <p style="color: white;">
-                    
-                  </p>
-                </div>
-              </div>
-    
-              <div class="faq_box_main">
-                <div class="faq_heading">
-                  <i class="fas fa-question-circle"></i><a> </a>
-                  <!-- FAQ HEADING 2 -->
-                  <div class="faq_icon">
-                    <div class="faq_bar f"></div>
-                    <div class="faq_bar s"></div>
-                  </div>
-                </div>
-                <div class="faq_box">
-                  <!-- FAQ ANSWER 2 -->
-                  <p style="color: white;">
-                    
-                  </p>
-                </div>
-              </div>
-    
-              <div class="faq_box_main">
-                <div class="faq_heading">
-                  <i class="fas fa-question-circle"></i><a> </a>
-                  <!-- FAQ HEADING 3 -->
-                  <div class="faq_icon">
-                    <div class="faq_bar f"></div>
-                    <div class="faq_bar s"></div>
-                  </div>
-                </div>
-                <div class="faq_box">
-                  <!-- FAQ ANSWER 3 -->
-                  <p style="color: white;">
-                    
-                  </p>
-                </div>
-              </div>
-    
-              <div class="faq_box_main">
-                <div class="faq_heading">
-                  <i class="fas fa-question-circle"></i><a> </a>
-                  <!-- FAQ HEADING 4 -->
-                  <div class="faq_icon">
-                    <div class="faq_bar f"></div>
-                    <div class="faq_bar s"></div>
-                  </div>
-                </div>
-                <div class="faq_box">
-                  <!-- FAQ ANSWER 4 -->
-                  <p style="color: white;">
-                    
-                  </p>
-                </div>
-              </div>
-            </div>
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1">
+        <li><a target="_blank" href="https://web.craftnesia.my.id/forum">Forum</a></li>
+        <li tabindex="0">
+          <details>
+            <summary>Vote</summary>
+            <ul class="p-2">
+              <li><a target ="_blank" href="https://minecraftservers.org/vote/651468">Vote 1</a></li>
+              <li><a target ="_blank" href="https://minecraft-mp.com/server/319833/vote/">Vote 2</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a target="_blank" href="https://sociabuzz.com/craftnesia/shop">Store</a></li>
+      </ul>
+    </div>
+    <div class="navbar-end">
+      <a target="_blank" href="https://discord.com/invite/7wbx6BjVva">Discord</a>
+    </div>
+  </div>
+  <a><marquee behavior="scroll" direction="left-right" scrollamount="10">Monthly Top 1 Vote : uraraka4848</marquee></a>
+  </header>
+  <br>
+  <br>
+  <br>
+    <!--Store Cards-->
+    <div class="flex-none max-h-96 max-w-md w-fit h-fit">
+      <img class="animation-floating-logo p-6" src="https://cdn.discordapp.com/attachments/1140646948706193409/1140673881632411819/craftnesia-simple.png">
+  </div>
+    <div class="card-container">
+      <div class="card w-96 bg-base-100 shadow-xl">
+        <figure><img src="https://cdn.discordapp.com/attachments/1136648602769428561/1149960768754814996/tRnWiEmvZFs0TrIfpdjAcl1qPNQkUh3g_thumb.png" alt="Support" /></figure>
+        <div class="card-body">
+          <h2 class="card-title">Supporter</h2>
+          <p>Survival Adventure Rank</p>
+          <div class="card-actions justify-end">
+            <a target="_blank" href="https://sociabuzz.com/craftnesia/p/support-survival_adventure_rank"><button class="btn btn-primary">Buy Now</button></a>
           </div>
         </div>
-        
-        <div class="pie_info">
-          <h2 style="color: white;"> </h2>
-          <div id="pinfo">
-            <div class="pie_info_btn">
-              <a target="_blank" href="https://minecraftservers.org/vote/651468">
-                <i class="fas fa-book"></i>
-                <span style="color: white;">Vote for Us</span>
-              </a>
-            </div>
-    
-            <div class="pie_info_btn">
-              <a target="_blank" href="https://web.craftnesia.my.id/staff.php">
-                <i class="fas fa-file"></i>
-                <span style="color: white;">Staff</span>
-              </a>
-            </div>
-    
-            <div class="pie_info_btn discord_info_btn">
-              <a href="https://discord.com/invite/7wbx6BjVva" target="_blank">
-                <i class="fab fa-discord"></i>
-                <span style="color: white;"><img
-                    src="https://cdn.discordapp.com/attachments/1140646948706193409/1144538245879824454/image.png"></span>
-              </a>
-            </div>
-    
-            <div class="pie_info_btn pie_rtable">
-              <a href="https://web.craftnesia.my.id/tutor-deck">
-                <i class="fas fa-list"></i>
-                <span style="color: white;">Tutorial</span>
-              </a>
-            </div>
+      </div>
+      <div class="card w-96 bg-base-100 shadow-xl">
+        <figure><img src="https://cdn.discordapp.com/attachments/1136648602769428561/1149960769044217886/t4uxHTGDE5YSNUpAj6rz3dyKFcoXen1V_thumb.png" alt="Contribute" /></figure>
+        <div class="card-body">
+          <h2 class="card-title">Contributor</h2>
+          <p>Survival Adventure Rank</p>
+          <div class="card-actions justify-end">
+            <a target="_blank" href="https://sociabuzz.com/craftnesia/p/contribute-survival_adventure_rank"><button class="btn btn-primary">Buy Now</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="card w-96 bg-base-100 shadow-xl">
+        <figure><img src="https://cdn.discordapp.com/attachments/1136648602769428561/1149960769312657499/G45xFpSjHqBeWAXuQ02Rtf3z7hidac6Z_thumb.png" alt="Donor" /></figure>
+        <div class="card-body">
+          <h2 class="card-title">Donor</h2>
+          <p>Survival Adventure Rank</p>
+          <div class="card-actions justify-end">
+            <a target="_blank" href="https://sociabuzz.com/craftnesia/p/donor-survival_adventure_rank"><button class="btn btn-primary">Buy Now</button></a>
           </div>
         </div>
       </div>
     </div>
-    <div id="modal-rtable" data-iziModal-title="Rank Table" data-iziModal-subtitle="Our server ranks and its features"
-      data-iziModal-icon="icon-home">
-      <div id="table_wrapper">
-        <table class="product_features">
-          <thead>
-            <th class="rankInfo">
-              <div class="feature_text"> </div>
-            </th>
-            <th class="rankBox vip style="color: white;"" style="color: white;">
-              Support <small style="color: white;">IDR.50k</small><a href="https://sociabuzz.com/craftnesia/p/support-survival_adventure_rank"
-                class="purchase_btn" style="color: white;">Purchase</a>
-            </th>
-            <th class="rankBox vipplus style="color: white;"" style="color: white;">
-              Contribute <small style="color: white;">IDR.100k</small><a
-                href="https://sociabuzz.com/craftnesia/p/contribute-survival_adventure_rank"
-                class="purchase_btn" style="color: white;">Purchase</a>
-            </th>
-            <th class="rankBox legend" style="color: white;">
-              Donor <small style="color: white;">IDR.150k</small><a href="https://sociabuzz.com/craftnesia/p/donor-survival_adventure_rank"
-                class="purchase_btn" style="color: white;">Purchase</a>
-            </th>
-            <th class="rankBox godly" style="color: white;">
-              Finance <small style="color: white;">IDR.250k</small><a href="https://sociabuzz.com/craftnesia/p/finance-survival_adventure_rank"
-                class="purchase_btn" style="color: white;">Purchase</a>
-            </th>
-            <th class="rankBox infamous" style="color: white;">
-              Architect <small>IDR.250k</small><a
-                href="https://sociabuzz.com/craftnesia/p/architect-survival_adventure_rank"
-                class="purchase_btn" style="color: white;">Purchase</a>
-            </th>
-            <th class="rankBox famous" style="color: white;">
-              Artist <small style="color: white;">IDR.300k</small><a href="https://sociabuzz.com/craftnesia/p/artist-survival_adventure_rank"
-                class="purchase_btn" style="color: white;">Purchase</a>
-            </th>
-          </thead>
-    
-          <tbody>
-            <tr>
-              <th class="feature_name" style="color: white;"> </th>
-              <th class="feature_availability" style="color: white;">[Supporter]</th>
-              <th class="feature_availability" style="color: white;">[Contributor]</th>
-              <th class="feature_availability" style="color: white;">[Donor]</th>
-              <th class="feature_availability" style="color: white;">[Finance]</th>
-              <th class="feature_availability" style="color: white;">[Architect]</th>
-              <th class="feature_availability" style="color: white;">[Artist]</th>
-            </tr>
-            <tr>
-              <th class="feature_name"> </th>
-              <th class="feature_availability" style="color: white;">/feed</th>
-              <th class="feature_availability" style="color: white;">All Feature From Support</th>
-              <th class="feature_availability" style="color: white;">All Feature From Contributor</th>
-              <th class="feature_availability" style="color: white;">All Feature From Donor</th>
-              <th class="feature_availability" style="color: white;">All Feature From Finance</th>
-              <th class="feature_availability" style="color: white;">All Feature From Architect</th>
-            </tr>
-            <tr>
-              <th class="feature_name" style="color: white;"> </th>
-              <th class="feature_availability" style="color: white;">/near</th>
-              <th class="feature_availability" style="color: white;">6 Player Vaults</th>
-              <th class="feature_availability" style="color: white;">8 Player Vaults</th>
-              <th class="feature_availability" style="color: white;">12 Player Vaults</th>
-              <th class="feature_availability" style="color: white;">16 Player Vaults</th>
-              <th class="feature_availability" style="color: white;">24 Player Vaults</th>
-            </tr>
-            <tr>
-              <th class="feature_name" style="color: white;"> </th>
-              <th class="feature_availability" style="color: white;">4 Player vaults</th>
-              <th class="feature_availability" style="color: white;">6 Homes</th>
-              <th class="feature_availability" style="color: white;">8 Homes</th>
-              <th class="feature_availability" style="color: white;">10 Homes</th>
-              <th class="feature_availability" style="color: white;">12 Homes</th>
-              <th class="feature_availability" style="color: white;">15 Homes</th>
-            </tr>
-            <tr>
-              <th class="feature_name" style="color: white;"> </th>
-              <th class="feature_availability" style="color: white;">4 Homes</th>
-              <th class="feature_availability" style="color: white;">Green Box Kit </th>
-              <th class="feature_availability" style="color: white;">/fly</th>
-              <th class="feature_availability" style="color: white;">/invsee (See only)</th>
-              <th class="feature_availability" style="color: white;">Sign & Chat color</th>
-              <th class="feature_availability" style="color: white;">/nick</th>
-            </tr>
-            <tr>
-              <th class="feature_name" style="color: white;"> </th>
-              <th class="feature_availability" style="color: white;">/workbench</th>
-              <th class="feature_availability" style="color: white;">Claim Limit : 0/6</th>
-              <th class="feature_availability" style="color: white;">Blue Box Kit</th>
-              <th class="feature_availability" style="color: white;">Claim Limit : 0/10</th>
-              <th class="feature_availability" style="color: white;">Silk Touch Spawner</th>
-              <th class="feature_availability" style="color: white;">Pink Box Kit</th>
-            </tr>
-            <tr>
-              <th class="feature_name"> </th>
-              <th class="feature_availability" style="color: white;">Green Box Kit</th>
-              <th class="feature_availability" style="color: white;"> </th>
-              <th class="feature_availability" style="color: white;">Claim Limit : 0/8</th>
-              <th class="feature_availability" style="color: white;"> </th>
-              <th class="feature_availability" style="color: white;">Pink Box Kit</th>
-              <th class="feature_availability" style="color: white;">Claim Limit : 0/Unlimited</th>
-            </tr>
-            <tr>
-              <th class="feature_name"> </th>
-              <th class="feature_availability" style="color: white;">Claim Limit : 0/4</th>
-              <th class="feature_availability" style="color: white;"></th>
-              <th class="feature_availability" style="color: white;"></th>
-              <th class="feature_availability" style="color: white;"></th>
-              <th class="feature_availability" style="color: white;">Claim Limit : 0/15</th>
-              <th class="feature_availability" style="color: white;"> </th>
-            </tr>
-            <tr>
-              <th class="feature_name"> </th>
-              <th class="feature_availability" style="color: white;"> </th>
-              <th class="feature_availability" style="color: white;"> </th>
-              <th class="feature_availability" style="color: white;"> </th>
-              <th class="feature_availability" style="color: white;"> </th>
-              <th class="feature_availability" style="color: white;"> </th>
-              <th class="feature_availability" style="color: white;"> </th>
-            </tr>
-            <tr>
-              <th class="feature_name"> </th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-            </tr>
-            <tr>
-              <th class="feature_name"> </th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-            </tr>
-            <tr>
-              <th class="feature_name"> </th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-            </tr>
-    
-            <tr>
-              <th class="feature_name"> </th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-            </tr>
-            <tr>
-              <th class="feature_name"> </th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-            </tr>
-            <tr>
-              <th class="feature_name"> </th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-            </tr>
-            <tr>
-              <th class="feature_name"> </th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-            </tr>
-            <tr>
-              <th class="feature_name"> </th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-            </tr>
-            <tr>
-              <th class="feature_name"> </th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-            </tr>
-            <tr>
-              <th class="feature_name"> </th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-times"></i></th>
-              <th class="feature_availability"><i class="fas fa-check"></i></th>
-            </tr>
-          </tbody>
-        </table>
+    <div class="card-container2">
+      <div class="card w-96 bg-base-100 shadow-xl">
+        <figure><img src="https://cdn.discordapp.com/attachments/1136648602769428561/1149960769593671680/X73GgiBsOSkytAzx6KfYF4MeZjbnErUW_thumb.png" alt="Finance" /></figure>
+        <div class="card-body">
+          <h2 class="card-title">Finance</h2>
+          <p>Survival Adventure Rank</p>
+          <div class="card-actions justify-end">
+            <a target="_blank" href="https://sociabuzz.com/craftnesia/p/finance-survival_adventure_rank"><button class="btn btn-primary">Buy Now</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="card w-96 bg-base-100 shadow-xl">
+        <figure><img src="https://cdn.discordapp.com/attachments/1136648602769428561/1149960769815982170/1YCOk7KMqEx0L4lAjdmPJQFwrzcU9uHf_thumb.png" alt="Architect" /></figure>
+        <div class="card-body">
+          <h2 class="card-title">Architect</h2>
+          <p>Survival Adventure Rank</p>
+          <div class="card-actions justify-end">
+            <a target="_blank" href="https://sociabuzz.com/craftnesia/p/architect-survival_adventure_rank"><button class="btn btn-primary">Buy Now</button></a>
+          </div>
+        </div>
+      </div><div class="card w-96 bg-base-100 shadow-xl">
+        <figure><img src="https://cdn.discordapp.com/attachments/1136648602769428561/1149960770076020736/SbZuIjkUO8Nf9CaXAJ1nK7wVQTGFYDMt_thumb.png" alt="Artist" /></figure>
+        <div class="card-body">
+          <h2 class="card-title">Artist</h2>
+          <p>Survival Adventure Rank</p>
+          <div class="card-actions justify-end">
+            <a target="_blank" href="https://sociabuzz.com/craftnesia/p/artist-survival_adventure_rank"><button class="btn btn-primary">Buy Now</button></a>
+          </div>
+        </div>
       </div>
     </div>
-
-    
-</head>
-<body>
-    
-</body>
-</html>
+</div>
 </body>
 </html>
